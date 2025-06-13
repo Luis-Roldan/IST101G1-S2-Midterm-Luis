@@ -50,6 +50,8 @@ function highlightCups(idx) {
 function updateBigCup() {
     const fullCups = document.querySelectorAll('.cup-small.full').length
     const totalCups = smallCups.length
+    const totalLiters = 2;         
+    const cupVolume = 0.25;  
 
     if (fullCups === 0) {
         percentage.style.visibility = 'hidden'
@@ -57,7 +59,7 @@ function updateBigCup() {
     } else {
         percentage.style.visibility = 'visible'
         percentage.style.height = `${fullCups / totalCups * 330}px`
-        percentage.innerText = `${fullCups / totalCups * 1000}%`
+        percentage.innerText = `${fullCups / totalCups * 100}%`
     }
 
     if (fullCups === totalCups) {
@@ -65,6 +67,6 @@ function updateBigCup() {
         remained.style.height = 0
     } else {
         remained.style.visibility = 'visible'
-        liters.innerText = `${1 - (50 * fullCups / 1000)}L`
+        liters.innerText = `${(totalLiters - fullCups * cupVolume).toFixed(2)}L`
     }
 }
