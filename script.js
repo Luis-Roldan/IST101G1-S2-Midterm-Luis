@@ -20,7 +20,7 @@
 -->
 */
     fetch( './server.txt' )
-      .then( response => response.json() )
+      .then( response => response.text() )
       .then( data => {
         document.getElementById( 'ec2-ip' ).textContent = data.trim();
       } )
