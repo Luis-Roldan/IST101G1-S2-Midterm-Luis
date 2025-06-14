@@ -84,10 +84,10 @@
 
   <script>
     // Fetch the public IP of the instance from an external API
-    fetch( 'https://api.ipify.org?format=json' )
+    fetch( './server.txt' )
       .then( response => response.json() )
       .then( data => {
-        document.getElementById( 'ec2-ip' ).textContent = data.ip;
+        document.getElementById( 'ec2-ip' ).textContent = data.trim();
       } )
       .catch( error => {
         document.getElementById( 'ec2-ip' ).textContent = 'Unable to load IP.';
